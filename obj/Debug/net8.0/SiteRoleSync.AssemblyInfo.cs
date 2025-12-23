@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SiteRoleSync")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+740d7c5a695f4fcd6a377a335e8b0cdb55c9964d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ec2ba1db258ba6d6c0a3987f29390c4bb17f579")]
 [assembly: System.Reflection.AssemblyProductAttribute("SiteRoleSync")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SiteRoleSync")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

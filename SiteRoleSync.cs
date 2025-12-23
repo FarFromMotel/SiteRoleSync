@@ -19,16 +19,17 @@ using CounterStrikeSharp.API.Core.Attributes;
 using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Modules.Timers;
 
+
 using Microsoft.Extensions.Logging;
 
 namespace SiteRoleSync;
 
 [MinimumApiVersion(80)]
-public class SiteRoleSync: BasePlugin, IPluginConfig<SiteRoleSyncConfig>
+public class SiteRoleSyncPlugin : BasePlugin, IPluginConfig<SiteRoleSyncConfig>
 {
     public override string ModuleName => "SiteRoleSync";
     public override string ModuleVersion => "1.0.0";
-    public override string ModuleAuthor => "";
+    public override string ModuleAuthor => "you + ChatGPT";
     public override string ModuleDescription => "Sync roles from site/db into CounterStrikeSharp admins/groups (join + periodic full).";
 
     public SiteRoleSyncConfig Config { get; set; } = new();
@@ -441,31 +442,21 @@ public class SiteRoleSync: BasePlugin, IPluginConfig<SiteRoleSyncConfig>
     }
 }
 
-public class SiteRoleSyncConfig
+public class SiteRoleSyncConfig : IBasePluginConfig
 {
-    // База урла бэкенда, например: "https://your-site.com"
+    public int Version { get; set; } = 1;
+
     public string BackendBaseUrl { get; set; } = "https://your-site.com";
-
-    // Пути эндпоинтов:
-    // Full: GET {BackendBaseUrl}{FullListPath}?serverId=...
     public string FullListPath { get; set; } = "/api/cs2/admins";
-
-    // One: GET {BackendBaseUrl}{OneUserPathTemplate}?serverId=...
-    // где {steamId64} будет заменён
     public string OneUserPathTemplate { get; set; } = "/api/cs2/admins/{steamId64}";
 
     public string ApiKey { get; set; } = "";
     public string ServerId { get; set; } = "cs2-1";
 
-    // Редкий полный sync
     public int FullSyncIntervalSeconds { get; set; } = 600;
-
-    // Debounce для применений (на массовых входах)
     public int ApplyDebounceSeconds { get; set; } = 2;
-
     public int HttpTimeoutSeconds { get; set; } = 5;
 
-    // Пути до файлов CSS
     public string AdminsPath { get; set; } = "addons/counterstrikesharp/configs/admins.json";
     public string GroupsPath { get; set; } = "addons/counterstrikesharp/configs/admin_groups.json";
 }
