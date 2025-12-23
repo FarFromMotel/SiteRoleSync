@@ -446,7 +446,7 @@ public class SiteRoleSyncConfig : IBasePluginConfig
 {
     public int Version { get; set; } = 1;
 
-    public string BackendBaseUrl { get; set; } = "https://your-site.com";
+    public string BackendBaseUrl { get; set; } = "";
     public string FullListPath { get; set; } = "/api/cs2/admins";
     public string OneUserPathTemplate { get; set; } = "/api/cs2/admins/{steamId64}";
 
